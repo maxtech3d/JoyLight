@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name JoyLight)(type KiCad)(uri ${KIPRJMOD}/JoyLight.pretty)(options "")(descr ""))
+)
