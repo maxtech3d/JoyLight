@@ -1095,6 +1095,6 @@ F 3 "" H 1250 4750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2950 4500 3200 4500
-Text Notes 2450 2800 0    50   ~ 0
-Note: The XIAO has builtin 10uF capacitors on the 5V and 3V3 lines.
+Text Notes 2400 3000 0    50   ~ 0
+Notes: \n- The XIAO is mounted using the 7 pin male headers that come with it (long side down). \n- The long side of the pins will need to be trimmed.\n- The XIAO has builtin 10uF capacitors on the 5V and 3V3 lines.
 $EndSCHEMATC
