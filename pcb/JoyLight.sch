@@ -1097,4 +1097,48 @@ Wire Wire Line
 	2950 4500 3200 4500
 Text Notes 2400 3000 0    50   ~ 0
 Notes: \n- The XIAO is mounted using the 7 pin male headers that come with it (long side down). \n- The long side of the pins will need to be trimmed.\n- The XIAO has builtin 10uF capacitors on the 5V and 3V3 lines.
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 60360E68
+P 9450 3300
+F 0 "H2" H 9550 3346 50  0000 L CNN
+F 1 "MountingHole" H 9550 3255 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 9450 3300 50  0001 C CNN
+F 3 "~" H 9450 3300 50  0001 C CNN
+	1    9450 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 603620E1
+P 9450 3500
+F 0 "H4" H 9550 3546 50  0000 L CNN
+F 1 "MountingHole" H 9550 3455 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 9450 3500 50  0001 C CNN
+F 3 "~" H 9450 3500 50  0001 C CNN
+	1    9450 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 6036263C
+P 8700 3300
+F 0 "H1" H 8800 3346 50  0000 L CNN
+F 1 "MountingHole" H 8800 3255 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 8700 3300 50  0001 C CNN
+F 3 "~" H 8700 3300 50  0001 C CNN
+	1    8700 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 603628A8
+P 8700 3500
+F 0 "H3" H 8800 3546 50  0000 L CNN
+F 1 "MountingHole" H 8800 3455 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 8700 3500 50  0001 C CNN
+F 3 "~" H 8700 3500 50  0001 C CNN
+	1    8700 3500
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
