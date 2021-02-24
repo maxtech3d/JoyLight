@@ -1141,4 +1141,15 @@ F 3 "~" H 8700 3500 50  0001 C CNN
 	1    8700 3500
 	1    0    0    -1  
 $EndComp
+$Comp
+L Graphic:Logo_Open_Hardware_Small #LOGO1
+U 1 1 60382BF3
+P 10100 4700
+F 0 "#LOGO1" H 10100 4975 50  0001 C CNN
+F 1 "Logo_Open_Hardware_Small" H 10100 4475 50  0001 C CNN
+F 2 "" H 10100 4700 50  0001 C CNN
+F 3 "~" H 10100 4700 50  0001 C CNN
+	1    10100 4700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
