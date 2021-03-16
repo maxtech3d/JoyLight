@@ -10,38 +10,91 @@
 #define LED_PIN     3
 #define NUM_LEDS    15
 
+
+enum AnimationTypesEnum{
+  AnimationNone,
+  AnimationRainbow,
+  AnimationFade
+};
+
+struct ColorAnimationStruct{
+  CRGB color; //NULL for animations
+  AnimationTypesEnum animationType; //animationType==AnimationNone for static colors
+  int animationDelayMs; //NULL for animationType==AnimationNone
+};
+
 CRGB leds[NUM_LEDS];
 
 //color struct - http://fastled.io/docs/3.1/struct_c_r_g_b.html
-CRGB colorsList[]={
-  CRGB::Red,
-  CRGB::DarkGreen,
-  CRGB::Blue,
-  CRGB::Purple,
-  CRGB::Magenta,
-  CRGB::White,
-  CRGB::OrangeRed,
-  CRGB::Yellow,
-  CRGB::Cyan,
-  CRGB::Lime
-  };
+ColorAnimationStruct displayOptions[]={
+  {NULL, AnimationRainbow, 1},
+  {NULL, AnimationRainbow, 5},
+  {NULL, AnimationFade, 5},
+  {NULL, AnimationFade, 10},
+  {CRGB::Red, AnimationNone, NULL},
+  {CRGB::DarkGreen, AnimationNone, NULL},
+  {CRGB::Blue, AnimationNone, NULL},
+  {CRGB::Purple, AnimationNone, NULL},
+  {CRGB::Magenta, AnimationNone, NULL},
+  {CRGB::White, AnimationNone, NULL},
+  {CRGB::OrangeRed, AnimationNone, NULL},
+  {CRGB::Yellow, AnimationNone, NULL},
+  {CRGB::Cyan, AnimationNone, NULL},
+  {CRGB::Lime, AnimationNone, NULL},
+  {CRGB::Yellow, AnimationNone, NULL}
+};
 
 //set the index to -1 for starters. Setup will call cycleToNextColor(), causing it to go to zero
-int crtColorIndex=-1;
+int crtOptionIndex=-1;
+int animationCurrentHue=1;
 
 void reloadCurrentColor()
 {
-  fill_solid(leds,NUM_LEDS,colorsList[crtColorIndex]);
-  FastLED.show(); 
+  if (displayOptions[crtOptionIndex].animationType==AnimationNone)
+  {
+    fill_solid(leds,NUM_LEDS,displayOptions[crtOptionIndex].color);
+    FastLED.show(); 
+  }
+  else
+  {
+    updateAnimation();
+  }
 }
 
-void cycleToNextColor()
+void cycleToNextOption()
 {
-  crtColorIndex++;
-  if (crtColorIndex>=sizeof(colorsList)/sizeof(colorsList[0]))
-    crtColorIndex=0;
+  crtOptionIndex++;
+  if (crtOptionIndex>=sizeof(displayOptions)/sizeof(displayOptions[0]))
+    crtOptionIndex=0;
 
   reloadCurrentColor();
+}
+
+void updateAnimation()
+{
+  if (displayOptions[crtOptionIndex].animationType==AnimationRainbow)
+  {
+    //crtLedHue is used to advance the hue from one LED to the next
+    uint8_t crtLedHue=animationCurrentHue; 
+    
+    for (int i=0; i<NUM_LEDS; i++)
+    {
+      leds[i]=CHSV(crtLedHue, 255, 255);
+      crtLedHue+=(255/NUM_LEDS);
+    }
+  }
+  else if (displayOptions[crtOptionIndex].animationType==AnimationFade)
+  {
+    fill_solid(leds,NUM_LEDS,CHSV(animationCurrentHue, 255, 255));
+  }
+  else
+  {
+    return; //not an animation
+  }
+  
+  FastLED.show();  
+  animationCurrentHue++;
+  delay(displayOptions[crtOptionIndex].animationDelayMs);
 }
 
 void setup() {   
@@ -51,7 +104,7 @@ void setup() {
   pinMode(COLOR_SW_PIN, INPUT_PULLUP);
   pinMode(BRIGHTNESS_SW_PIN, INPUT_PULLUP);
 
-  cycleToNextColor();
+  cycleToNextOption();
 }
 
 bool displayIsOn=true;
@@ -101,7 +154,9 @@ void loop() {
 
   if (IsBtnPressed(COLOR_SW_PIN))
   {
-    cycleToNextColor();
+    cycleToNextOption();
     WaitUntilBtnReleased(COLOR_SW_PIN);
   }
+
+  updateAnimation();
 }
