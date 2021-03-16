@@ -48,6 +48,8 @@ ColorAnimationStruct displayOptions[]={
 int crtOptionIndex=-1;
 int animationCurrentHue=1;
 
+bool displayIsOn=true;
+
 void reloadCurrentColor()
 {
   if (displayOptions[crtOptionIndex].animationType==AnimationNone)
@@ -72,6 +74,9 @@ void cycleToNextOption()
 
 void updateAnimation()
 {
+  if (!displayIsOn)
+    return;
+  
   if (displayOptions[crtOptionIndex].animationType==AnimationRainbow)
   {
     //crtLedHue is used to advance the hue from one LED to the next
@@ -106,8 +111,6 @@ void setup() {
 
   cycleToNextOption();
 }
-
-bool displayIsOn=true;
 
 bool IsBtnPressed(int pinNr)
 {
