@@ -27,21 +27,20 @@ CRGB leds[NUM_LEDS];
 
 //color struct - http://fastled.io/docs/3.1/struct_c_r_g_b.html
 ColorAnimationStruct displayOptions[]={
-  {NULL, AnimationRainbow, 1},
   {NULL, AnimationRainbow, 5},
-  {NULL, AnimationFade, 5},
+  {NULL, AnimationRainbow, 1},
   {NULL, AnimationFade, 10},
-  {CRGB::Red, AnimationNone, NULL},
-  {CRGB::DarkGreen, AnimationNone, NULL},
-  {CRGB::Blue, AnimationNone, NULL},
-  {CRGB::Purple, AnimationNone, NULL},
-  {CRGB::Magenta, AnimationNone, NULL},
-  {CRGB::White, AnimationNone, NULL},
+  {NULL, AnimationFade, 5},
+  {CRGB::Red, AnimationNone,  NULL},
   {CRGB::OrangeRed, AnimationNone, NULL},
   {CRGB::Yellow, AnimationNone, NULL},
-  {CRGB::Cyan, AnimationNone, NULL},
+  {CRGB::GreenYellow, AnimationNone, NULL}, // light greenish
   {CRGB::Lime, AnimationNone, NULL},
-  {CRGB::Yellow, AnimationNone, NULL}
+  {CRGB::Blue, AnimationNone, NULL},
+  {CRGB::DeepSkyBlue, AnimationNone, NULL},
+  {CRGB::White, AnimationNone, NULL},
+  {CRGB::DarkViolet, AnimationNone,  NULL},
+  {CRGB::DeepPink, AnimationNone,  NULL}
 };
 
 //set the index to -1 for starters. Setup will call cycleToNextColor(), causing it to go to zero
