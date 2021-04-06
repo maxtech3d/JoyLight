@@ -5,11 +5,13 @@
 #define COLOR_SW_PIN 9
 #define BRIGHTNESS_SW_PIN 10
 
+//button related constants
+#define LONG_BTN_PRESS_THRESHOLD_MS 1500
+
 //led constants
 #define LED_TYPE    WS2812B
 #define LED_PIN     3
 #define NUM_LEDS    15
-
 
 enum AnimationTypesEnum{
   AnimationNone,
@@ -151,7 +153,23 @@ void loop() {
 
     FastLED.setBrightness(brightness);
     FastLED.show();
-    WaitUntilBtnReleased(BRIGHTNESS_SW_PIN);
+    
+        
+    //detect long presses and set the brightness level to max
+    //TODO: This should be consolidated with the WaitUntilBtnReleased function
+
+    //WaitUntilBtnReleased(BRIGHTNESS_SW_PIN);
+    delay(5);
+    long startTime=millis();
+    while (IsBtnPressed(BRIGHTNESS_SW_PIN))
+    {
+      if (millis()-startTime>=LONG_BTN_PRESS_THRESHOLD_MS)
+      {
+        FastLED.setBrightness(255);
+        FastLED.show();
+      }
+    }
+    delay(5);
   }
 
   if (IsBtnPressed(COLOR_SW_PIN))
