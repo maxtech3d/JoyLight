@@ -31,16 +31,16 @@ ColorAnimationStruct displayOptions[]={
   {NULL, AnimationRainbow, 3},
   {NULL, AnimationFade, 17},
   {NULL, AnimationFade, 10},
-  {CRGB::Red, AnimationNone,  NULL},
-  {CRGB::Blue, AnimationNone, NULL},
-  {CRGB::DeepSkyBlue, AnimationNone, NULL},
-  {CRGB::Lime, AnimationNone, NULL},
+  {CRGB::White, AnimationNone, NULL},
   {CRGB::GreenYellow, AnimationNone, NULL}, // light greenish
+  {CRGB::DeepSkyBlue, AnimationNone, NULL},
   {CRGB::DarkViolet, AnimationNone,  NULL},
-  {CRGB::DeepPink, AnimationNone,  NULL},
-  {CRGB::OrangeRed, AnimationNone, NULL},
   {CRGB::Yellow, AnimationNone, NULL},
-  {CRGB::White, AnimationNone, NULL}
+  {CRGB::OrangeRed, AnimationNone, NULL},
+  {CRGB::Lime, AnimationNone, NULL},
+  {CRGB::Blue, AnimationNone, NULL},
+  {CRGB::DeepPink, AnimationNone,  NULL},
+  {CRGB::Red, AnimationNone,  NULL}
 };
 
 //set the index to -1 for starters. Setup will call cycleToNextColor(), causing it to go to zero
