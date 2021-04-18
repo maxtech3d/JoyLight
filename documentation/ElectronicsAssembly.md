@@ -48,3 +48,5 @@ You can now apply one of the stickers included in the XIAO kit to the top shield
 ![Pin trimming 2](images/ElectronicsAssembly_step7b.jpg)
 
 Congratulations, you have finished assembling the JoyLight board all by yourself! You can now proceed to [3D printing the JoyLight enclosure](Enclosure3dPrinting.md) or [Assembling the JoyLight enclosure](EnclosureAssembly.md).
+
+P.S. Wondering what all those unpopulated pin headers are? They're for connecting [Seeeduino Grove boards]https://www.seeedstudio.com/category/Grove-c-1003.html?cat=890. This allows you to connect additional expansions such as light sensors, Bluetooth/WiFi modules or even an OLED display! Stay tuned for a detailed guide. In the meanwile, you can read more information on [their website](https://wiki.seeedstudio.com/Grove_System/)

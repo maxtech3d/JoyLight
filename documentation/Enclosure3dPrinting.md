@@ -6,7 +6,6 @@ Here is where the models are [located](/3d_models/).
 
 ## Print settings
 
-
 **Top Part**
 
 File: [Joylight_Enclosure_TopPart.stl](/3d_models/Joylight_Enclosure_TopPart.stl).
@@ -27,7 +26,7 @@ Print settings:
 
 **Assembly Helper**
 
-File: [Joylight_HelperBracket.stl](/3d_models/Joylight_HelperBracket).
+File: [Joylight_HelperBracket.stl](/3d_models/Joylight_HelperBracket.stl).
 
 Print settings:
 * Layer height: 0.2mm
